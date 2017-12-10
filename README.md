@@ -5,7 +5,7 @@ This tool provides an API to phoneticize Japanese paragraphs and novels, via the
 
 The project is named after *Yumina Ernier Belfast* in light novel *In Another World With My Smartphone*.
 
-![ユミナさん](./images/yumina.png)
+![ユミナさん](./images/yumina.jpg)
 
 You may also download novels from [小説家になろう](https://syosetu.com/) and save them to a local database, where you could update them on a timely basis.
 
