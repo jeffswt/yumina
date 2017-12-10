@@ -1,0 +1,102 @@
+
+@font-face {
+    font-family: 'ym-kaiti';
+	src: local("楷体");
+}
+
+@font-face {
+    font-family: 'ym-heiti';
+    src: local("黑体");
+}
+
+body.yumina-section {
+    writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
+    -epub-writing-mode: vertical-rl;
+    line-break: strict;
+    -epub-line-break: strict;
+    word-break: normal;
+    -epub-word-break: normal;
+}
+
+h1 {
+	font-family: ym-heiti;
+	font-size: 20px;
+}
+
+h2 {
+	font-size: 1.2em;
+	font-weight: 700;
+	padding: 10px 20px 10px 3em;
+}
+
+p {
+    font-family: ym-kaiti;
+	font-size: 1.0em;
+    font-weight: 500;
+}
+
+.translator {
+	font-size: 10px;
+}
+
+table {
+	font-size: 16px;
+	margin: auto;
+	width: 100%;
+}
+
+td {
+	width: 25%;
+}
+
+#cssTable td {
+	text-align: center;
+	vertical-align: middle;
+}
+
+th {
+	font-weight: 400;
+}
+
+.illust {
+	display: block;
+	margin: 0 auto;
+}
+
+.no-d {
+	text-decoration: none;
+}
+
+sup {
+	font-size: .75em;
+	line-height: 1.2;
+	vertical-align: super;
+}
+
+.entry {
+	background: none repeat scroll 0 0 #EEE;
+	border-radius: 3px;
+	padding: 3px;
+}
+
+.title {
+	background-color: #eaeaea;
+	background-image: 0;
+	background-repeat: repeat-x;
+	border: 1px solid #CACACA;
+	border-bottom: 0 none;
+	color: #555;
+	display: block;
+	font-size: 16px;
+	font-weight: 700;
+	padding: 10px;
+	text-align: center;
+	text-shadow: 0 1px 0 #fff;
+}
+
+.entry-content {
+	background-color: #fff;
+	border: 1px solid #CACACA;
+	padding: 20px;
+}

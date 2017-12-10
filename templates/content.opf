@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package version="2.0" unique-identifier="BookID" xmlns="http://www.idpf.org/2007/opf">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+    <dc:title>異世界はスマートフォンとともに。</dc:title>
+    <dc:creator opf:role="aut">冬原パトラ</dc:creator>
+    <dc:language>jp</dc:language>
+    <dc:date opf:event="modification">2017-11-11</dc:date>
+    <dc:contributor opf:role="ill">兔冢英志</dc:contributor>
+    <dc:contributor opf:role="ill">ねこたま。</dc:contributor>
+    <dc:description>神様の手違いで死んでしまった主人公は、異世界で第二の人生をスタートさせる。彼にあるのは神様から底上げしてもらった身体と、異世界でも使用可能にしてもらったスマートフォン。様々な人たちと出会い、大切な仲間を得ていく中で、いつしか主人公はこの世界の秘密を知る。古代文明の遺産を受け継ぎ、お気楽な世界の王たちと力を合わせながら、彼はのほほんと世界を巡っていく。</dc:description>
+    <dc:subject>小説</dc:subject>
+    <dc:identifier id="BookID" opf:scheme="UUID">urn:uuid:91c29f7b-7905-4fb7-ae30-f50c4e8a6d6f</dc:identifier>
+    <meta name="cover" content="Images_cover.jpg" />
+  </metadata>
+  <manifest>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+    <item id="cover.jpg" href="Images/cover.jpg" media-type="image/jpeg"/>
+    <item id="main.css" href="Styles/main.css" media-type="text/css"/>
+    % for mfst in toc:
+    % if mfst[0] == 'chapter_title':
+    <item id="chapter${str(mfst[1]).rjust(4, '0')}.xhtml" href="Text/chapter${str(mfst[1]).rjust(4, '0')}.xhtml" media-type="application/xhtml+xml"/>
+    % elif mfst[0] == 'subtitle':
+    <item id="sec${str(mfst[1]).rjust(4, '0')}.xhtml" href="Text/sec${str(mfst[1]).rjust(4, '0')}.xhtml" media-type="application/xhtml+xml"/>
+    % endif
+    % endfor
+    <item id="cover-img.xhtml" href="Text/cover-img.xhtml" media-type="application/xhtml+xml"/>
+    <item id="cover-name.xhtml" href="Text/cover-name.xhtml" media-type="application/xhtml+xml"/>
+  </manifest>
+  <spine page-progression-direction="rtl" toc="ncx">
+    <itemref idref="cover-img.xhtml" properties="duokan-page-fullscreen"/>
+    <itemref idref="cover-name.xhtml"/>
+    % for mfst in toc:
+    % if mfst[0] == 'chapter_title':
+    <itemref idref="chapter${str(mfst[1]).rjust(4, '0')}.xhtml"/>
+    % elif mfst[0] == 'subtitle':
+    <itemref idref="sec${str(mfst[1]).rjust(4, '0')}.xhtml"/>
+    % endif
+    % endfor
+  </spine>
+  <guide>
+  </guide>
+</package>

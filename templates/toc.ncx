@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN"
+   "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd">
+
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+  <head>
+    <meta name="dtb:uid" content="urn:uuid:91c29f7b-7905-4fb7-ae30-f50c4e8a6d6f"/>
+    <meta name="dtb:depth" content="2"/>
+    <meta name="dtb:totalPageCount" content="0"/>
+    <meta name="dtb:maxPageNumber" content="0"/>
+  </head>
+  <docTitle>
+    <text>異世界はスマートフォンとともに。</text>
+  </docTitle>
+  <navMap>
+    <% nav_count = 1 %>
+    <% in_chapter = False %>
+    <navPoint id="navPoint-${nav_count}" playOrder="${nav_count}">
+      <navLabel>
+        <text>封面</text>
+      </navLabel>
+      <content src="Text/cover-img.xhtml"/>
+    </navPoint>
+    <% nav_count += 1 %>
+    % for mfst in toc:
+    % if mfst[0] == 'chapter_title':
+    % if in_chapter:
+    </navPoint>
+    <% in_chapter = False %>
+    % endif
+    <navPoint id="navPoint-${nav_count}" playOrder="${nav_count}">
+      <navLabel>
+        <text>第${mfst[1]}章 ${mfst[2]}</text>
+      </navLabel>
+      <content src="Text/chapter${str(mfst[1]).rjust(4, '0')}.xhtml"/>
+      <% nav_count += 1 %>
+      <% in_chapter = True %>
+    % elif mfst[0] == 'subtitle':
+      <navPoint id="navPoint-${nav_count}" playOrder="${nav_count}">
+        <navLabel>
+          <text>#${mfst[1]} ${mfst[2]}</text>
+        </navLabel>
+        <content src="Text/sec${str(mfst[1]).rjust(4, '0')}.xhtml"/>
+      </navPoint>
+      <% nav_count += 1 %>
+    % endif
+    % endfor
+    % if in_chapter:
+    </navPoint>
+    % endif
+  </navMap>
+</ncx>

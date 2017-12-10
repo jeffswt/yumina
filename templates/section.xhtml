@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:lang="zh-CN">
+<head>
+  <link href="../Styles/main.css" rel="stylesheet" type="text/css"/>
+  <style type="text/css">
+
+</style>
+  <title></title>
+</head>
+
+<body class="yumina-section">
+  <h2>＃<span style="writing-mode: lr;">${title[1]}</span> ${title[2]}</h2>
+  <% in_paragraph = False %>
+  % for line in cont:
+  % if line[0] == 'line':
+  % if not in_paragraph:
+  <p>
+  <% in_paragraph = True %>
+  % if line[1][0] != '「':
+  ${'　'}
+  % endif
+  % else:
+  <br/>
+  % endif
+    % for item in line[1]:
+    % if item[0] == 'regular':
+    ${item[1]}
+    % elif item[0] == 'phonogram':
+    <ruby>${item[1]}<rt>${item[2]}</rt></ruby>
+    % endif
+    % endfor
+  % elif line[0] == 'break':
+  % if in_paragraph:
+  </p>
+  <% in_paragraph = False %>
+  % endif
+  % endif
+  % endfor
+  % if in_paragraph:
+  </p>
+  <% in_paragraph = False %>
+  % endif
+</body>
+</html>
